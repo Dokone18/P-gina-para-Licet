@@ -30,7 +30,7 @@
 
         /* Estilos para centrar los mensajes y hacerlos más grandes */
         .message {
-            font-size: 6em; /* Texto más grande */
+            font-size: 6em;
             color: white;
             text-align: center;
             opacity: 0;
@@ -49,8 +49,11 @@
 </head>
 <body>
 
-    <!-- Video de fondo con YouTube -->
-    <iframe id="bg-video" src="https://www.youtube.com/embed/YOjBNQubqmI?autoplay=1&loop=1&mute=1&playlist=YOjBNQubqmI" frameborder="0" allowfullscreen></iframe>
+    <!-- Video de fondo en formato MP4 -->
+    <video autoplay muted loop id="bg-video">
+        <source src="tu_video.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+    </video>
 
     <!-- Mensajes -->
     <div class="message" id="text1">HOLA LICET</div>
@@ -85,14 +88,14 @@
             messages[currentMessage].classList.add('fade-out');
             setTimeout(() => {
                 messages[currentMessage].classList.remove('fade-in', 'fade-out');
-                currentMessage = (currentMessage + 1) % messages.length;  // Reiniciar ciclo correctamente
+                currentMessage = (currentMessage + 1) % messages.length;
                 fadeInNextMessage();
             }, 2000);
         }
 
         function fadeInNextMessage() {
             messages[currentMessage].classList.add('fade-in');
-            setTimeout(fadeOutMessage, 4000); // Tiempo visible antes de desvanecer
+            setTimeout(fadeOutMessage, 4000);
         }
 
         // Iniciar ciclo con la primera frase
