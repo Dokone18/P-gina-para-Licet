@@ -30,7 +30,7 @@
 
         /* Estilos para centrar los mensajes y hacerlos más grandes */
         .message {
-            font-size: 6em;
+            font-size: 6vw; /* Usamos vw (viewport width) para que se ajuste al tamaño de la pantalla */
             color: white;
             text-align: center;
             opacity: 0;
@@ -53,7 +53,7 @@
             left: 50%;
             transform: translateX(-50%);
             padding: 10px 20px;
-            font-size: 20px;
+            font-size: 4vw; /* Ajustamos el tamaño del botón también */
             background-color: #ffcc00;
             border: none;
             color: #000;
@@ -63,6 +63,18 @@
 
         #play-button:hover {
             background-color: #ffaa00;
+        }
+
+        /* Media query para pantallas más pequeñas como móviles */
+        @media (max-width: 768px) {
+            .message {
+                font-size: 8vw; /* Ajustamos el tamaño de la fuente para pantallas pequeñas */
+            }
+
+            #play-button {
+                font-size: 5vw; /* Ajustamos el tamaño del botón para pantallas pequeñas */
+                padding: 8px 16px; /* Botón más pequeño en móviles */
+            }
         }
     </style>
 </head>
