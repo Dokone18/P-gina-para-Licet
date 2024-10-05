@@ -9,7 +9,7 @@
     <style>
         @font-face {
             font-family: 'Romantic';
-            src: url('fonts/Romantic.ttf') format('truetype'); /* Ajusta la ruta si la subes a otra carpeta */
+            src: url('fonts/Romantic.ttf') format('truetype'); /* Ajusta la ruta si subiste la fuente a otra carpeta */
             font-weight: normal;
             font-style: normal;
         }
@@ -39,7 +39,7 @@
 
         /* Estilos para centrar los mensajes y hacerlos más grandes */
         .message {
-            font-size: 9vw; /* Ajuste del tamaño del texto para que sea visible en móviles */
+            font-size: 10vw; /* Texto más grande para pantallas grandes */
             color: white;
             text-align: center;
             opacity: 0;
@@ -80,11 +80,11 @@
         /* Ajustes para pantallas más pequeñas (móviles) */
         @media (max-width: 768px) {
             .message {
-                font-size: 8vw; /* Aumentar el tamaño en móviles para mejor visibilidad */
+                font-size: 12vw; /* Aumentar el tamaño para pantallas móviles */
             }
 
             #play-button {
-                font-size: 6vw;
+                font-size: 7vw;
                 padding: 10px 20px;
             }
         }
@@ -92,11 +92,11 @@
         /* Ajustes para pantallas muy pequeñas (celulares pequeños) */
         @media (max-width: 480px) {
             .message {
-                font-size: 7vw; /* Un poco más grande para móviles pequeños */
+                font-size: 14vw; /* Texto más grande para celulares pequeños */
             }
 
             #play-button {
-                font-size: 6.5vw;
+                font-size: 8vw;
                 padding: 8px 16px;
             }
         }
