@@ -30,14 +30,14 @@
 
         /* Estilos para centrar los mensajes y hacerlos más grandes */
         .message {
-            font-size: 6vw; /* Ajuste basado en viewport width */
+            font-size: 8vw; /* Ajuste del tamaño del texto para que sea visible en móviles */
             color: white;
             text-align: center;
             opacity: 0;
             transition: opacity 2s ease-in-out;
             position: absolute;
-            padding: 0 5%; /* Margen para evitar que el texto toque los bordes */
-            word-wrap: break-word; /* Ajuste de línea automático para evitar sobresalir */
+            padding: 0 5%; /* Evitar que el texto toque los bordes */
+            word-wrap: break-word; /* Ajuste automático de líneas */
         }
 
         .fade-in {
@@ -54,8 +54,8 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 10px 20px;
-            font-size: 4vw;
+            padding: 12px 24px;
+            font-size: 5vw;
             background-color: #ffcc00;
             border: none;
             color: #000;
@@ -67,27 +67,27 @@
             background-color: #ffaa00;
         }
 
-        /* Ajustes para pantallas pequeñas (celulares) */
+        /* Ajustes para pantallas más pequeñas (móviles) */
         @media (max-width: 768px) {
             .message {
-                font-size: 5vw; /* Tamaño más pequeño para pantallas de móvil */
+                font-size: 7vw; /* Aumentar el tamaño en móviles para mejor visibilidad */
             }
 
             #play-button {
-                font-size: 5vw;
-                padding: 8px 16px;
+                font-size: 6vw;
+                padding: 10px 20px;
             }
         }
 
-        /* Ajustes para pantallas muy pequeñas (celulares muy pequeños) */
+        /* Ajustes para pantallas muy pequeñas (celulares pequeños) */
         @media (max-width: 480px) {
             .message {
-                font-size: 4.5vw; /* Más pequeño para pantallas muy pequeñas */
+                font-size: 6.5vw; /* Un poco más grande para móviles pequeños */
             }
 
             #play-button {
-                font-size: 4.5vw;
-                padding: 6px 12px;
+                font-size: 6.5vw;
+                padding: 8px 16px;
             }
         }
     </style>
