@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Licet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background-color: black;
+        }
+
+        /* Video de fondo */
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        /* Estilos para centrar los mensajes y hacerlos más grandes */
+        .message {
+            font-size: 6em; /* Texto más grande */
+            color: white;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            position: absolute;
+        }
+
+        .fade-in {
+            opacity: 1 !important;
+        }
+
+        .fade-out {
+            opacity: 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video de fondo -->
+    <video autoplay muted loop id="bg-video">
+        <source src="{{ url_for('static', filename='videos/tu_video.mp4') }}" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+    </video>
+
+    <!-- Mensajes -->
+    <div class="message" id="text1">HOLA LICET</div>
+    <div class="message" id="text2">GRACIAS POR TODO MI VIDA</div>
+    <div class="message" id="text3">GRACIAS POR LLEGAR A MI VIDA</div>
+    <div class="message" id="text4">TE AMO MUCHÍSIMO MI AMOR</div>
+    <div class="message" id="text5">MI COSITA RICA</div>
+    <div class="message" id="text6">COSITA BIEN HECHA</div>
+    <div class="message" id="text7">COSITA APETECIBLE</div>
+    <div class="message" id="text8">COSITA COMESTIBLE</div>
+    <div class="message" id="text9">TE AMOOOOOOOOOOOOO</div>
+
+    <!-- Música romántica -->
+    <audio autoplay loop>
+        <source src="{{ url_for('static', filename='Audio/tu_audio.mp3') }}" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        const messages = [
+            document.getElementById('text1'),
+            document.getElementById('text2'),
+            document.getElementById('text3'),
+            document.getElementById('text4'),
+            document.getElementById('text5'),
+            document.getElementById('text6'),
+            document.getElementById('text7'),
+            document.getElementById('text8'),
+            document.getElementById('text9')
+        ];
+
+        let currentMessage = 0;
+
+        function fadeOutMessage() {
+            messages[currentMessage].classList.add('fade-out');
+            setTimeout(() => {
+                messages[currentMessage].classList.remove('fade-in', 'fade-out');
+                currentMessage = (currentMessage + 1) % messages.length;  // Reiniciar ciclo correctamente
+                fadeInNextMessage();
+            }, 2000);
+        }
+
+        function fadeInNextMessage() {
+            messages[currentMessage].classList.add('fade-in');
+            setTimeout(fadeOutMessage, 4000); // Tiempo visible antes de desvanecer
+        }
+
+        // Iniciar ciclo con la primera frase
+        setTimeout(() => {
+            messages[0].classList.add('fade-in');
+            setTimeout(fadeOutMessage, 4000);
+        }, 1000);
+    </script>
+</body>
+</html>
