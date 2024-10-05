@@ -30,12 +30,14 @@
 
         /* Estilos para centrar los mensajes y hacerlos más grandes */
         .message {
-            font-size: 6vw; /* Usamos vw (viewport width) para que se ajuste al tamaño de la pantalla */
+            font-size: 6vw; /* Ajuste basado en viewport width */
             color: white;
             text-align: center;
             opacity: 0;
             transition: opacity 2s ease-in-out;
             position: absolute;
+            padding: 0 5%; /* Margen para evitar que el texto toque los bordes */
+            word-wrap: break-word; /* Ajuste de línea automático para evitar sobresalir */
         }
 
         .fade-in {
@@ -53,7 +55,7 @@
             left: 50%;
             transform: translateX(-50%);
             padding: 10px 20px;
-            font-size: 4vw; /* Ajustamos el tamaño del botón también */
+            font-size: 4vw;
             background-color: #ffcc00;
             border: none;
             color: #000;
@@ -65,15 +67,27 @@
             background-color: #ffaa00;
         }
 
-        /* Media query para pantallas más pequeñas como móviles */
+        /* Ajustes para pantallas pequeñas (celulares) */
         @media (max-width: 768px) {
             .message {
-                font-size: 8vw; /* Ajustamos el tamaño de la fuente para pantallas pequeñas */
+                font-size: 5vw; /* Tamaño más pequeño para pantallas de móvil */
             }
 
             #play-button {
-                font-size: 5vw; /* Ajustamos el tamaño del botón para pantallas pequeñas */
-                padding: 8px 16px; /* Botón más pequeño en móviles */
+                font-size: 5vw;
+                padding: 8px 16px;
+            }
+        }
+
+        /* Ajustes para pantallas muy pequeñas (celulares muy pequeños) */
+        @media (max-width: 480px) {
+            .message {
+                font-size: 4.5vw; /* Más pequeño para pantallas muy pequeñas */
+            }
+
+            #play-button {
+                font-size: 4.5vw;
+                padding: 6px 12px;
             }
         }
     </style>
