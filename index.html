@@ -57,24 +57,26 @@
             opacity: 0 !important;
         }
 
-        /* Botón para habilitar el audio */
+        /* Botón de ícono Play para habilitar el audio */
         #play-button {
             position: absolute;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 12px 24px;
-            font-size: 5vw;
-            background-color: #ffcc00;
+            background: none;
             border: none;
-            color: #000;
             cursor: pointer;
             z-index: 100;
-            font-family: 'Romantic', cursive; /* Aplicar Romantic también al botón */
         }
 
-        #play-button:hover {
-            background-color: #ffaa00;
+        #play-button img {
+            width: 60px; /* Ajustar el tamaño del ícono */
+            height: 60px;
+        }
+
+        #play-button:hover img {
+            transform: scale(1.1); /* Efecto de hover para agrandar el ícono */
+            transition: transform 0.2s ease-in-out;
         }
 
         /* Ajustes para pantallas más pequeñas (móviles) */
@@ -83,9 +85,9 @@
                 font-size: 12vw; /* Aumentar el tamaño para pantallas móviles */
             }
 
-            #play-button {
-                font-size: 7vw;
-                padding: 10px 20px;
+            #play-button img {
+                width: 50px;
+                height: 50px;
             }
         }
 
@@ -95,9 +97,9 @@
                 font-size: 14vw; /* Texto más grande para celulares pequeños */
             }
 
-            #play-button {
-                font-size: 8vw;
-                padding: 8px 16px;
+            #play-button img {
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
@@ -121,11 +123,13 @@
     <div class="message" id="text8">COSITA COMESTIBLE</div>
     <div class="message" id="text9">TE AMO MUCHO MI VIDA, GRACIAS POR SER TÚ</div>
 
-    <!-- Botón para habilitar el audio -->
-    <button id="play-button">Reproducir Música</button>
+    <!-- Botón para habilitar el audio con ícono Play -->
+    <button id="play-button">
+        <img src="play-icon.png" alt="Play">
+    </button>
 
-    <!-- Música de fondo desde YouTube -->
-    <iframe id="bg-audio" src="https://www.youtube.com/embed/PykXcyfPUk4?autoplay=0&loop=1&mute=0&playlist=PykXcyfPUk4" frameborder="0" allow="autoplay" style="display:none;"></iframe>
+    <!-- Música de fondo desde el repositorio -->
+    <audio id="bg-audio" src="tu_audio.mp3"></audio>
 
     <script>
         const messages = [
@@ -162,9 +166,9 @@
             setTimeout(fadeOutMessage, 4000);
         }, 1000);
 
-        // Habilitar el audio cuando el usuario haga clic en el botón
+        // Habilitar el audio cuando el usuario haga clic en el botón de Play
         document.getElementById('play-button').addEventListener('click', function() {
-            document.getElementById('bg-audio').src = "https://www.youtube.com/embed/PykXcyfPUk4?autoplay=1&loop=1&mute=0&playlist=PykXcyfPUk4";
+            document.getElementById('bg-audio').play(); // Reproducir el audio desde el repositorio
             document.getElementById('play-button').style.display = 'none'; // Ocultar botón después de activar la música
         });
     </script>
