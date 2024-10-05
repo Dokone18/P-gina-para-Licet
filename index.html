@@ -57,37 +57,10 @@
             opacity: 0 !important;
         }
 
-        /* Botón de ícono Play para habilitar el audio */
-        #play-button {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 100;
-        }
-
-        #play-button img {
-            width: 60px; /* Ajustar el tamaño del ícono */
-            height: 60px;
-        }
-
-        #play-button:hover img {
-            transform: scale(1.1); /* Efecto de hover para agrandar el ícono */
-            transition: transform 0.2s ease-in-out;
-        }
-
         /* Ajustes para pantallas más pequeñas (móviles) */
         @media (max-width: 768px) {
             .message {
                 font-size: 12vw; /* Aumentar el tamaño para pantallas móviles */
-            }
-
-            #play-button img {
-                width: 50px;
-                height: 50px;
             }
         }
 
@@ -95,11 +68,6 @@
         @media (max-width: 480px) {
             .message {
                 font-size: 14vw; /* Texto más grande para celulares pequeños */
-            }
-
-            #play-button img {
-                width: 45px;
-                height: 45px;
             }
         }
     </style>
@@ -122,11 +90,6 @@
     <div class="message" id="text7">COSITA APETECIBLE</div>
     <div class="message" id="text8">COSITA COMESTIBLE</div>
     <div class="message" id="text9">TE AMO MUCHO MI VIDA, GRACIAS POR SER TÚ</div>
-
-    <!-- Botón para habilitar el audio con ícono Play -->
-    <button id="play-button">
-        <img src="play-icon.png" alt="Play">
-    </button>
 
     <!-- Música de fondo desde el repositorio -->
     <audio id="bg-audio" src="tu_audio.mp3"></audio>
@@ -166,11 +129,10 @@
             setTimeout(fadeOutMessage, 4000);
         }, 1000);
 
-        // Habilitar el audio cuando el usuario haga clic en el botón de Play
-        document.getElementById('play-button').addEventListener('click', function() {
+        // Reproducir el audio cuando el usuario toque cualquier parte de la pantalla
+        document.body.addEventListener('click', function() {
             document.getElementById('bg-audio').play(); // Reproducir el audio desde el repositorio
-            document.getElementById('play-button').style.display = 'none'; // Ocultar botón después de activar la música
-        });
+        }, { once: true }); // El evento solo se activará una vez
     </script>
 </body>
 </html>
